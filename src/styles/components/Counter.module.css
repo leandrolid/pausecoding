@@ -1,6 +1,8 @@
 .counterContainer {
     display: flex;
     flex-direction: column;
+    transition: 0.2s;
+    margin-bottom: 50px;
 }
 
 .counter{
@@ -46,6 +48,10 @@
 }
 
 .startCounter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     width: 100%;
     height: 5rem;
 
@@ -57,9 +63,58 @@
     font-weight: 600;
 
     border: none;
+    outline: 0;
     border-radius: 5px;
 }
 
-.startCounter:hover{
+.startCounter:not(:disabled) :hover{
     background: var(--blue-dark);
+}
+.startCounter > img {
+    margin: 0 0.5rem;
+}
+
+.stopCounter {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    background: var(--white);
+    color: var(--title);
+}
+
+.stopCounter:not(:disabled):hover {
+    background: var(--red);
+    color: var(--white);
+}
+
+.countownBarContainer{
+    height: 4px;
+    width: 100%;
+    position: absolute;
+
+    background-color: var(--gray-line);
+    left: 0;
+    bottom: 0;
+
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+}
+
+.countownBar{
+    height: 4px;
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    transition: 0.5s;
+}
+
+.startCounter:disabled {
+    background: var(--white);
+    color: var(--text);
+    cursor: not-allowed;
 }
