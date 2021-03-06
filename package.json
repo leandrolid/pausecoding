@@ -5,8 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
-    "postinstall":"tsc"
+    "start": "next start -p $PORT"
   },
   "dependencies": {
     "next": "10.0.8",

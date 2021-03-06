@@ -6,3 +6,5 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp
+
+//for package.json "heroku-postbuild": "npm run build"
