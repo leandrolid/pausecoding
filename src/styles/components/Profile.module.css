@@ -1,0 +1,23 @@
+.profile {
+    display: flex;
+    align-items: center;
+}
+
+.profile > img {
+    width: 4.5rem;
+    border-radius: 50%;
+}
+
+.profile div {
+    margin-left: 1.5rem;
+}
+
+.profile strong {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--title);
+}
+
+.profile p img {
+    margin-right: 0.5rem;
+}

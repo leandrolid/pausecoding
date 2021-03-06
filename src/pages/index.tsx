@@ -1,20 +1,31 @@
 import Head from 'next/head'
 import { ExperienceBar } from '../components/ExperienceBar'
+import { Profile } from '../components/Profile'
+import { CompletedChallenges } from '../components/CompletedChallenges'
+import { Counter } from '../components/Counter'
+
 
 export default function Home() {
   return (
-    <div>
+    <>
       <Head>
         <title>pausecoding</title>
-        <link rel="icon" href="favicon.ico" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Rajdhani:wght@600&display=swap" rel="stylesheet" />
       </Head>
-
       <div className="container" >
-        <ExperienceBar/>
-      </div>
+        <ExperienceBar />
 
-    </div>
+        <section>
+          <div>
+            <Profile />
+            <CompletedChallenges />
+            <Counter />
+          </div>
+
+          <div>
+            Direita
+        </div>
+        </section>
+      </div>
+    </>
   )
 }
