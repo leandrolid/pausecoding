@@ -18,7 +18,7 @@ export function ExperienceBar() {
 
 
     return (
-        <header className={styles.experienceBar} >
+        <header id='experienceBar' className={styles.experienceBar} >
             <span>0 xp</span>
             <div>
                 <div 

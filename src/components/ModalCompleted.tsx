@@ -7,6 +7,7 @@ export function ModalCompleted() {
 
     function handleClose(){
         setIsModalActive(false)
+        document.getElementById('topContainer').scrollIntoView({behavior: 'smooth'})
     }
     
     return (

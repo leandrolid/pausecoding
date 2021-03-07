@@ -11,19 +11,21 @@ export function ChallengeBox() {
     function handleChallengeFailed(){
         resetChallenge()
         stopCountdown()
+        document.getElementById('topContainer').scrollIntoView({behavior: 'smooth'})
     }
 
     function handleChallengeSucceeded(){
         resetChallenge()
         stopCountdown()
         completeChallenge()
+        document.getElementById('topContainer').scrollIntoView({behavior: 'smooth'})
     }
 
     return (
         <div className={styles.challengeBoxContainer} >
             {!currentChallenge ? 
             (
-                <div className={styles.challengeNotActive} >
+                <div id='challengeBox' className={styles.challengeNotActive} >
                 <div> 
                     <strong>Inicie um ciclo <br/> para receber desafios</strong>
                 </div>
