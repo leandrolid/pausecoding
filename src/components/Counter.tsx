@@ -1,17 +1,18 @@
 import { useContext, useEffect, useState } from 'react'
 import { ChallengesContext } from '../contexts/ChallengeContext';
+import { CountdownContext } from '../contexts/CountdownContext';
 import styles from '../styles/components/Counter.module.css'
 
-let countdownTimeout: NodeJS.Timeout;
-
 export function Counter() {
-
     const {startNewChallenge} = useContext(ChallengesContext)
-    const totalTime = 0.1 * 60
-
-    const [time, setTime] = useState(totalTime);
-    const [isButtonActive, setIsButtonActive] = useState(false);
-    const [hasFinished, setHasFinished] = useState(false)
+    const { 
+        time, 
+        totalTime, 
+        hasFinished, 
+        isButtonActive, 
+        startCountdown, 
+        stopCountdown } 
+        = useContext(CountdownContext)
 
     const [counterBarColor, setCounterBarColor] = useState('ce2a45')
     const [percentage, setPercentage] = useState(100);
@@ -21,30 +22,6 @@ export function Counter() {
 
     const [minuteLeft, minuteRighr] = String(minutes).padStart(2, '0').split('')
     const [secondLeft, secondRighr] = String(seconds).padStart(2, '0').split('')
-
-    function startCountdown() {
-        setIsButtonActive(true)
-    }
-    useEffect(() => {
-        if (isButtonActive && time > 0) {
-            countdownTimeout = setTimeout(() => {
-                setTime(time - 1)
-
-            }, 1000)
-        } else if (isButtonActive && time === 0) {
-            setHasFinished(true)
-            setIsButtonActive(false)
-            startNewChallenge()
-            //setTime(5*60)
-            //setIsButtonActive(true)
-        }
-    }, [isButtonActive, time])
-
-    function stopCountdown() {
-        clearTimeout(countdownTimeout)
-        setIsButtonActive(false)
-        setTime(totalTime)
-    }
 
     useEffect(() => {
         setPercentage(Math.ceil(100 / totalTime * time))
@@ -96,7 +73,6 @@ export function Counter() {
                             (
                                 <button
                                     type="button"
-
                                     className={styles.startCounter}
                                     onClick={startCountdown}
                                 >Iniciar novo ciclo
@@ -107,7 +83,6 @@ export function Counter() {
                                 <>
                                     <button
                                         type="button"
-
                                         className={`${styles.startCounter} ${styles.stopCounter} `}
                                         onClick={stopCountdown}
                                     >Abandonar ciclo
