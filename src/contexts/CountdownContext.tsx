@@ -41,7 +41,7 @@ export function CountdownProvider({children}: CountdownProviderProps){
             setHasFinished(true)
             setIsButtonActive(false)
             startNewChallenge()
-            document.getElementById('challengeBox').scrollIntoView({behavior: 'smooth'})
+            document.getElementById('challengeBox').scrollIntoView({behavior: 'smooth', block: 'end'})
             //setTime(5*60)
             //setIsButtonActive(true)
         }
