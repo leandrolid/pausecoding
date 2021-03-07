@@ -1,4 +1,5 @@
 import { ChallengesProvider } from '../contexts/ChallengeContext'
+import { CountdownProvider } from '../contexts/CountdownContext'
 import '../styles/globals.css'
 
 function MyApp({ Component, pageProps }) {

@@ -23,7 +23,8 @@
   }
   
   .currentExperience{
-    position: absolute; 
+    position: absolute;
+    width: fit-content;
     bottom: 12px;
     transform: translateX(-50%);
   }
