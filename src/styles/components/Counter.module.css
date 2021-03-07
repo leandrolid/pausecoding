@@ -114,7 +114,17 @@
 }
 
 .startCounter:disabled {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
     background: var(--white);
     color: var(--text);
     cursor: not-allowed;
+}
+
+.startCounter:disabled div{
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
 }

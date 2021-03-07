@@ -4,14 +4,14 @@ import styles from '../styles/components/Counter.module.css'
 let countdownTimeout: NodeJS.Timeout;
 
 export function Counter() {
-    const totalTime = 0.2 * 60
+    const totalTime = 0.1 * 60
 
     const [time, setTime] = useState(totalTime);
     const [isButtonActive, setIsButtonActive] = useState(false);
     const [hasFinished, setHasFinished] = useState(false)
+
     const [counterBarColor, setCounterBarColor] = useState('ce2a45')
     const [percentage, setPercentage] = useState(100);
-
 
     const minutes = Math.floor(time / 60)
     const seconds = time % 60
@@ -74,6 +74,15 @@ export function Counter() {
                     className={styles.startCounter}
                 >Ciclo encerrado
                     <img src="icons/check.svg" />
+                    <div className={styles.countownBarContainer}>
+                        <div
+                            style={{
+                                width: `${100 - percentage}%`,
+                                backgroundColor: `#${counterBarColor}`
+                                //'#ce2a45'
+                            }}
+                            className={styles.countownBar} />
+                    </div>
                 </button>
             ) :
                 (
@@ -100,7 +109,7 @@ export function Counter() {
                                         <div className={styles.countownBarContainer}>
                                             <div
                                                 style={{
-                                                    width: `${percentage}%`,
+                                                    width: `${100 - percentage}%`,
                                                     backgroundColor: `#${counterBarColor}`
                                                     //'#ce2a45'
                                                 }}
