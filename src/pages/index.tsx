@@ -3,6 +3,7 @@ import { ExperienceBar } from '../components/ExperienceBar'
 import { Profile } from '../components/Profile'
 import { CompletedChallenges } from '../components/CompletedChallenges'
 import { Counter } from '../components/Counter'
+import { ChallengeBox } from '../components/ChallengeBox'
 
 
 export default function Home() {
@@ -22,7 +23,7 @@ export default function Home() {
           </div>
 
           <div>
-            Direita
+            <ChallengeBox />
         </div>
         </section>
       </div>

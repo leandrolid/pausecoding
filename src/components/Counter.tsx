@@ -1,9 +1,12 @@
-import { useEffect, useState } from 'react'
+import { useContext, useEffect, useState } from 'react'
+import { ChallengesContext } from '../contexts/ChallengeContext';
 import styles from '../styles/components/Counter.module.css'
 
 let countdownTimeout: NodeJS.Timeout;
 
 export function Counter() {
+
+    const {startNewChallenge} = useContext(ChallengesContext)
     const totalTime = 0.1 * 60
 
     const [time, setTime] = useState(totalTime);
@@ -31,7 +34,9 @@ export function Counter() {
         } else if (isButtonActive && time === 0) {
             setHasFinished(true)
             setIsButtonActive(false)
-            //setTime(totalTime)
+            startNewChallenge()
+            //setTime(5*60)
+            //setIsButtonActive(true)
         }
     }, [isButtonActive, time])
 

@@ -1,0 +1,149 @@
+.challengeBoxContainer{
+    display: flex;
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    height: 100%;
+    margin: 50px 0;
+    
+
+    background: var(--white);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    
+}
+
+.challengeNotActive,
+.challengeNotActive div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.challengeNotActive strong {
+    color: var(--title);
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+
+.challengeNotActive > div img {
+    width: 4rem;
+    margin: 4rem 0 2rem 0;
+}
+
+.challengeNotActive div:first-child{
+    margin: 5rem 2rem 0 2rem;
+}
+
+.challengeNotActive div:last-child{
+    font-weight: 400;
+    font-size: 1rem;
+    color: var(--text);
+
+    margin: 0 2rem 5rem 2rem;
+}
+
+.challengeActive, 
+.challengeActive main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: inherit;
+}
+
+.challengeActive main{
+    width: 90%;
+}
+.challengeActive header{
+    font-size: 1.25rem;
+    font-weight: 600;
+
+    color: var(--blue);
+
+    margin: 2rem 0;
+}
+
+.challengeActive main{
+    border-top: 1px solid var(--gray-line);
+}
+
+.challengeActive > main img{
+    width: 9rem;
+    margin: 2rem 0 1.5rem 0;
+}
+
+.challengeActive main strong {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--title);
+}
+
+.challengeActive main p {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--text);
+
+    width: 80%;
+    margin: 1.5rem 0 3rem 0;
+}
+
+.challengeActive footer { 
+    display: flex;
+    width: 100%;
+    border-bottom-left-radius: inherit;
+    border-bottom-right-radius: inherit;
+    border-top: 1px solid var(--gray-line);
+
+}
+
+.buttonFailed {
+    flex: 2;
+    height: 80px;
+
+    background: #FFF5F5;
+    color: var(--red);
+
+    font-size: 1.25rem;
+    font-weight: 500;
+
+    border: none;
+    border-right: 1px solid var(--gray-line);
+    border-bottom-left-radius: inherit;
+    outline: none;
+
+    transition: 0.2s;
+}
+
+.buttonFailed:hover{
+    background: var(--red);
+    color: var(--white);
+}
+
+.buttonSucceeded {
+    flex: 2;
+    height: 80px;
+
+    background: #F7FFF5;
+    color: var(--green);
+
+    font-size: 1.25rem;
+    font-weight: 500;
+
+    border: none;
+    border-bottom-right-radius: inherit;
+    outline: none;
+
+    transition: 0.2s;
+}
+
+.buttonSucceeded:hover {
+    background: var(--green);
+    color: var(--white);
+}
+
