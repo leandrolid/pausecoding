@@ -1,14 +1,14 @@
 .modalContainer{
     position: fixed;
     top: 0;
-
+    
     display: flex;
     align-items: center;
     justify-content: center;
-
+    
     width: 100%;
     height: 100%;
-
+    
     background: rgba(255, 255, 255, 0.7);
 }
 
@@ -25,7 +25,7 @@
     
 
     background: var(--white);
-    box-shadow: 0 0 60px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.15);
     border-radius: 5px;
 }
 
@@ -92,13 +92,23 @@
 
     font-size: 1.25rem;
     font-weight: 600;
+}
 
+.footerColor {
+    fill: var(--blue-twitter);
+}
+
+.modal footer button,
+.modal footer button svg {
     color: var(--blue-twitter);
+    fill: inherit; 
+
 }
 
 .modal footer button:hover{
     background: var(--blue-twitter);
     color: var(--white);
+    fill: var(--white);
 }
 
 .modal footer span {
