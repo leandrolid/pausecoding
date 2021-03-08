@@ -96,10 +96,6 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
 
     const experienceToNextLevel = Math.pow((level + 1) * 4, 2)
 
-
-
-
-
     return (
         <ChallengesContext.Provider value={{
             level,
