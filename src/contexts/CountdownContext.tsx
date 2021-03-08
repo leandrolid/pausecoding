@@ -11,16 +11,16 @@ interface CountdownContextData {
     hasFinished: boolean,
     isButtonActive: boolean,
     startCountdown: () => void,
-    stopCountdown:() => void,
+    stopCountdown: () => void,
 }
 
 export const CountdownContext = createContext({} as CountdownContextData)
 
 let countdownTimeout: NodeJS.Timeout;
 
-export function CountdownProvider({children}: CountdownProviderProps){
-    
-    const {startNewChallenge} = useContext(ChallengesContext)
+export function CountdownProvider({ children }: CountdownProviderProps) {
+
+    const { startNewChallenge } = useContext(ChallengesContext)
 
     const totalTime = 0.05 * 60
 
@@ -41,7 +41,7 @@ export function CountdownProvider({children}: CountdownProviderProps){
             setHasFinished(true)
             setIsButtonActive(false)
             startNewChallenge()
-            document.getElementById('challengeBox').scrollIntoView({behavior: 'smooth', block: 'end'})
+            document.getElementById('challengeBox').scrollIntoView({ behavior: 'smooth', block: 'end' })
             //setTime(5*60)
             //setIsButtonActive(true)
         }
@@ -55,15 +55,15 @@ export function CountdownProvider({children}: CountdownProviderProps){
     }
 
     return (
-    <CountdownContext.Provider value={{
-        time,
-        totalTime,
-        hasFinished,
-        isButtonActive,
-        startCountdown,
-        stopCountdown
+        <CountdownContext.Provider value={{
+            time,
+            totalTime,
+            hasFinished,
+            isButtonActive,
+            startCountdown,
+            stopCountdown
         }} >
-        {children}
-    </CountdownContext.Provider>
+            {children}
+        </CountdownContext.Provider>
     )
 }
