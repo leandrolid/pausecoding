@@ -102,8 +102,9 @@ export default function Home(props: PropsData) {
                     name="username"
                     id="username"
                     required
+                    autoFocus
                     placeholder="Digite seu username"
-
+                    maxLength="26"
                   />
                   <button
                     type="submit"
@@ -152,17 +153,17 @@ export default function Home(props: PropsData) {
                     name="username"
                     id="username"
                     required
-                    placeholder="Digite seu nome"
+                    placeholder="Digite seu username"
 
                   />
                 </div>
                 <div>
                   <input
                     type="text"
-                    name="username"
-                    id="username"
+                    name="name"
+                    id="name"
                     required
-                    placeholder="Digite seu username"
+                    placeholder="Digite seu nome"
 
                   />
                   <button
