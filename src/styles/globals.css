@@ -88,3 +88,7 @@ a {
     font-size: 82.5%;
   }
 }
+
+.freeze-container{
+  position: fixed;
+}

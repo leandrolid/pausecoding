@@ -1,17 +1,16 @@
 import { useContext, useEffect, useState } from 'react'
-import { ChallengesContext } from '../contexts/ChallengeContext';
 import { CountdownContext } from '../contexts/CountdownContext';
 import styles from '../styles/components/Counter.module.css'
 
 export function Counter() {
-    const {startNewChallenge} = useContext(ChallengesContext)
-    const { 
-        time, 
-        totalTime, 
-        hasFinished, 
-        isButtonActive, 
-        startCountdown, 
-        stopCountdown } 
+
+    const {
+        time,
+        totalTime,
+        hasFinished,
+        isButtonActive,
+        startCountdown,
+        stopCountdown }
         = useContext(CountdownContext)
 
     const [counterBarColor, setCounterBarColor] = useState('ce2a45')

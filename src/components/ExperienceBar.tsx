@@ -6,10 +6,10 @@ export function ExperienceBar() {
 
     const [percentage, setPercentage] = useState(0)
 
-    const { currentExperience, experienceToNextLevel,setCurrentExperience } = useContext(ChallengesContext)
-    
-    useEffect(()=>{
-        if(currentExperience>= experienceToNextLevel){
+    const { currentExperience, experienceToNextLevel, setCurrentExperience } = useContext(ChallengesContext)
+
+    useEffect(() => {
+        if (currentExperience >= experienceToNextLevel) {
             let diferencePercentage = currentExperience - experienceToNextLevel
             setCurrentExperience(diferencePercentage)
         }
@@ -21,14 +21,16 @@ export function ExperienceBar() {
         <header id='experienceBar' className={styles.experienceBar} >
             <span>0 xp</span>
             <div>
-                <div 
-                style={{ width: `${percentage}%`, transition: '0.5s' }} 
-                className={styles.progressBar} />
+                <div
+                    style={{ width: `${percentage}%`, transition: '0.5s' }}
+                    className={styles.progressBar} />
 
-                <span 
-                style={{ left: `${percentage}%`, transition: '0.5s' }} 
-                className={styles.currentExperience} 
-                >{currentExperience === 0 ? null : `${currentExperience} xp` }</span>
+                <span
+                    style={{ left: `${percentage}%`, transition: '0.5s' }}
+                    className={styles.currentExperience}
+                >{currentExperience === 0 ? null : `${currentExperience} xp`}
+                    <div />
+                </span>
             </div>
             <span>{experienceToNextLevel} xp</span>
         </header>

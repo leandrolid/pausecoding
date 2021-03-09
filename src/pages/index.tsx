@@ -12,16 +12,16 @@ import { ChallengesProvider } from '../contexts/ChallengeContext'
 interface PropsData {
   level: number,
   currentExperience: number,
-  completedChallenges: number
+  completedChallenges: number,
 }
 
 export default function Home(props: PropsData) {
 
   return (
     <ChallengesProvider
-    level={props.level}
-    currentExperience={props.currentExperience}
-    completedChallenges={props.completedChallenges}
+      level={props.level}
+      currentExperience={props.currentExperience}
+      completedChallenges={props.completedChallenges}
     >
       <Head>
         <title>pausecoding</title>
@@ -39,7 +39,7 @@ export default function Home(props: PropsData) {
 
             <div>
               <ChallengeBox />
-          </div>
+            </div>
           </section>
         </CountdownProvider>
       </div>
@@ -50,8 +50,13 @@ export default function Home(props: PropsData) {
 
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
-  const { level, currentExperience, completedChallenges } = ctx.req.cookies
 
+
+  const res = 0
+
+  console.log(res)
+
+  const { level, currentExperience, completedChallenges } = ctx.req.cookies
 
   return {
     props: {

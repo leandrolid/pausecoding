@@ -3,8 +3,8 @@ import { ChallengesContext } from '../contexts/ChallengeContext'
 import styles from '../styles/components/Profile.module.css'
 
 export function Profile() {
-    const {level} = useContext(ChallengesContext)
-    
+    const { level } = useContext(ChallengesContext)
+
     return (
         <div className={styles.profile} >
             <img src="https://github.com/leandrolid.png" alt="Pofile picture" />
