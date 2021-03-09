@@ -28,7 +28,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
     const [isButtonActive, setIsButtonActive] = useState(false);
     const [hasFinished, setHasFinished] = useState(false)
 
-    function startCountdown() {
+    async function startCountdown() {
         setIsButtonActive(true)
     }
     useEffect(() => {

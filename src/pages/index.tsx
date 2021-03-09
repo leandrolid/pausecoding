@@ -13,6 +13,7 @@ interface PropsData {
   level: number,
   currentExperience: number,
   completedChallenges: number,
+  user: string
 }
 
 export default function Home(props: PropsData) {
@@ -22,6 +23,7 @@ export default function Home(props: PropsData) {
       level={props.level}
       currentExperience={props.currentExperience}
       completedChallenges={props.completedChallenges}
+      user={props.user}
     >
       <Head>
         <title>pausecoding</title>
@@ -48,21 +50,22 @@ export default function Home(props: PropsData) {
   )
 }
 
+
+
 export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
+  
 
-
-  const res = 0
-
-  console.log(res)
-
-  const { level, currentExperience, completedChallenges } = ctx.req.cookies
+  const { level, currentExperience, completedChallenges, user } = ctx.req.cookies
+  
 
   return {
     props: {
       level: Number(level),
       currentExperience: Number(currentExperience),
-      completedChallenges: Number(completedChallenges)
+      completedChallenges: Number(completedChallenges),
+      user: String(user)
     }
+    
   }
 }
