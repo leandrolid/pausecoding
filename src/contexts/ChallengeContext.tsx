@@ -1,14 +1,12 @@
 import { createContext, ReactNode, useEffect, useState } from 'react'
 import challenges from '../../challenges.json'
 import Cookies from 'js-cookie'
-import axios from 'axios'
 
 interface ChallengesProviderProps {
     children: ReactNode
     level: number,
     currentExperience: number,
     completedChallenges: number,
-    user: string
 }
 interface Challenge {
     type: string,
@@ -36,28 +34,30 @@ export const ChallengesContext = createContext({} as ChallengesContextData)
 
 export function ChallengesProvider({ children, ...rest }: ChallengesProviderProps) {
 
-    const user = rest.user
-
-    async function createUser () {
-        const response = await axios.post('/api/createusers', { username : 'leandro.asl' })
+    const user = null
+    /*
+    
+    async function createUser() {
+        const response = await axios.post('/api/createusers', { username: 'leandro.asl' })
         //console.log(response)
-    
+
         const { user } = response.data
-    
+
         Cookies.set('user', user.username)
-    
+
         //console.log(user)
     }
 
-    useEffect( () => {
+    useEffect(() => {
         createUser()
-    } ,[user])
-    
+    }, [user])
+    */
 
     const [level, setLevel] = useState(rest.level ?? 0)
     const [currentExperience, setCurrentExperience] = useState(rest.currentExperience ?? 0)
     const [currentChallenge, setCurrentChallenge] = useState(null)
     const [completedChallenges, setCompletedChallenges] = useState(rest.completedChallenges ?? 0)
+
     const [isModalActive, setIsModalActive] = useState(false)
 
     function levelUp() {

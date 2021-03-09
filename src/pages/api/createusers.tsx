@@ -1,10 +1,10 @@
-import { VercelRequest, VercelResponse } from '@vercel/node' 
+import { VercelRequest, VercelResponse } from '@vercel/node'
 import { MongoClient, Db } from 'mongodb'
 import url from 'url'
 
 let cachedDb: Db = null
 
-async function connectToDatabase(uri: string){
+async function connectToDatabase(uri: string) {
 
     if (cachedDb) {
         return cachedDb
@@ -15,16 +15,16 @@ async function connectToDatabase(uri: string){
         useUnifiedTopology: true
     })
 
-    const dbName = url. parse(uri).pathname.substr(1)
+    const dbName = url.parse(uri).pathname.substr(1)
 
     const db = client.db(dbName)
-    
+
     cachedDb = db
 
     return db;
 }
 
-export default async ( request: VercelRequest , response: VercelResponse ) => {
+export default async (request: VercelRequest, response: VercelResponse) => {
 
     const { username } = request.body
 
@@ -32,7 +32,7 @@ export default async ( request: VercelRequest , response: VercelResponse ) => {
 
     const collection = db.collection('users')
 
-    let user = await collection.findOne({username})
+    let user = await collection.findOne({ username })
 
     //console.log({username})
 

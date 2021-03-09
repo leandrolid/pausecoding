@@ -16,6 +16,7 @@
     align-content: center;
     justify-content: center;
     
+    width: fit-content;
 }
 
 .loginForm header {
@@ -55,13 +56,12 @@
 }
 
 
-.loginForm button{
+.loginForm button {
     width: 3.5rem;
-
-    background: var(--blue-dark);
 
     border:none;
     outline: none;
+     transition: 0.2s;
 }
 
 .loginForm span {

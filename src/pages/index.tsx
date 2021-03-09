@@ -8,24 +8,34 @@ import { ChallengeBox } from '../components/ChallengeBox'
 import { ModalCompleted } from '../components/ModalCompleted'
 import { CountdownProvider } from '../contexts/CountdownContext'
 import { ChallengesProvider } from '../contexts/ChallengeContext'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import styles from '../styles/components/Session.module.css'
+import Cookies from 'js-cookie'
 
 interface PropsData {
   level: number,
   currentExperience: number,
   completedChallenges: number,
-  user: string
 }
 
 export default function Home(props: PropsData) {
 
   const [isLoginActive, setIsLoginActive] = useState(false)
   const [isSignUpActive, setIsSignUpActive] = useState(false)
+  const [username, setUsername] = useState("")
+  const [buttonCollor, setButtonCollor] = useState("4953b8")
 
+  //console.log(username)
+  //localStorage.setItem('user', username)
+  useEffect(() => {
+    if (username) {
+      setButtonCollor("4CD62B")
+    }
+  }, [username])
   function handleLogin(event) {
     event.preventdefault
+    Cookies.set("username", username)
     setIsLoginActive(true)
   }
 
@@ -41,7 +51,6 @@ export default function Home(props: PropsData) {
       level={props.level}
       currentExperience={props.currentExperience}
       completedChallenges={props.completedChallenges}
-      user={props.user}
     >
       <Head>
         <title>pausecoding</title>
@@ -74,8 +83,8 @@ export default function Home(props: PropsData) {
                 onSubmit={handleLogin}
               >
                 <header>
-                  <svg width="360" height="76" viewBox="0 0 360 76" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0)">
+                  <svg width="20.25rem" viewBox="0 0 360 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clipPath="url(#clip0)">
                       <path d="M154.522 33.5139L149.306 58.7967H135.718L140.934 33.5139C141.343 31.5267 141.106 31.1604 139.18 31.1604H134.275C132.362 31.1604 131.961 31.5267 131.556 33.4634C131.556 33.4634 131.556 33.4971 131.556 33.5139L126.34 58.7967H112.74L117.96 33.5139C118.369 31.5267 118.132 31.1604 116.202 31.1604H111.297C109.367 31.1604 108.979 31.5309 108.57 33.5139L103.35 58.7967H89.7618L97.77 19.9862H108.807L110.557 23.3208C111.563 22.2294 112.782 21.3684 114.133 20.7939C115.483 20.2193 116.937 19.9442 118.398 19.9862H121.214C126.528 19.9862 130.113 22.3651 131.397 26.3859C133.772 21.9146 137.214 19.9862 141.371 19.9862H144.192C152.176 19.9862 156.235 25.2954 154.522 33.5139Z" fill="white" />
                       <path d="M195.961 33.5139L193.537 45.269C191.841 53.4875 185.586 58.7967 177.594 58.7967H167.301C159.321 58.7967 155.262 53.4833 156.959 45.2648L159.383 33.5139C161.075 25.2954 167.33 19.9862 175.326 19.9862H185.635C193.598 19.9862 197.662 25.2954 195.961 33.5139ZM182.361 33.5139C182.77 31.5266 182.532 31.1603 180.607 31.1603H175.702C173.772 31.1603 173.384 31.5308 172.975 33.5139L170.547 45.2648C170.138 47.2521 170.379 47.6184 172.305 47.6184H177.21C179.135 47.6184 179.528 47.2479 179.937 45.2648L182.361 33.5139Z" fill="white" />
                       <path d="M280.764 30.4235C280.267 32.6298 279.067 34.6011 277.355 36.0232L270.434 41.9176C268.775 43.3548 266.687 44.1631 264.519 44.208H254.937L254.72 45.248C254.312 47.2352 254.549 47.6015 256.478 47.6015H277.212L274.906 58.7799H251.458C243.479 58.7799 239.42 53.4665 241.116 45.248L243.54 33.497C245.237 25.2785 251.491 19.9694 259.483 19.9694H269.801C277.76 19.9862 281.876 25.0175 280.764 30.4235ZM266.53 33.5139C266.939 31.5266 266.702 31.1603 264.773 31.1603H259.867C257.946 31.1561 257.537 31.5308 257.128 33.5139L256.311 37.56H264.405C264.768 37.5445 265.116 37.4074 265.396 37.1696C265.676 36.9317 265.874 36.6061 265.958 36.2422L266.53 33.5139Z" fill="white" />
@@ -99,14 +108,17 @@ export default function Home(props: PropsData) {
                 <div>
                   <input
                     type="text"
-                    name="username"
+                    name="dashboard"
                     id="username"
                     required
                     autoFocus
                     placeholder="Digite seu username"
+                    value={username}
+                    onChange={event => setUsername(event.target.value)}
                   />
                   <button
                     type="submit"
+                    style={{ background: `#${buttonCollor}` }}
                   >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M9.17939e-07 13.5L18.255 13.5L9.87 21.885L12 24L24 12L12 -1.04907e-06L9.885 2.115L18.255 10.5L1.18021e-06 10.5L9.17939e-07 13.5Z" fill="white" />
@@ -124,8 +136,8 @@ export default function Home(props: PropsData) {
                 onSubmit={handleLogin}
               >
                 <header>
-                  <svg width="360" height="76" viewBox="0 0 360 76" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <g clip-path="url(#clip0)">
+                  <svg width="20.25rem" viewBox="0 0 360 76" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clipPath="url(#clip0)">
                       <path d="M154.522 33.5139L149.306 58.7967H135.718L140.934 33.5139C141.343 31.5267 141.106 31.1604 139.18 31.1604H134.275C132.362 31.1604 131.961 31.5267 131.556 33.4634C131.556 33.4634 131.556 33.4971 131.556 33.5139L126.34 58.7967H112.74L117.96 33.5139C118.369 31.5267 118.132 31.1604 116.202 31.1604H111.297C109.367 31.1604 108.979 31.5309 108.57 33.5139L103.35 58.7967H89.7618L97.77 19.9862H108.807L110.557 23.3208C111.563 22.2294 112.782 21.3684 114.133 20.7939C115.483 20.2193 116.937 19.9442 118.398 19.9862H121.214C126.528 19.9862 130.113 22.3651 131.397 26.3859C133.772 21.9146 137.214 19.9862 141.371 19.9862H144.192C152.176 19.9862 156.235 25.2954 154.522 33.5139Z" fill="white" />
                       <path d="M195.961 33.5139L193.537 45.269C191.841 53.4875 185.586 58.7967 177.594 58.7967H167.301C159.321 58.7967 155.262 53.4833 156.959 45.2648L159.383 33.5139C161.075 25.2954 167.33 19.9862 175.326 19.9862H185.635C193.598 19.9862 197.662 25.2954 195.961 33.5139ZM182.361 33.5139C182.77 31.5266 182.532 31.1603 180.607 31.1603H175.702C173.772 31.1603 173.384 31.5308 172.975 33.5139L170.547 45.2648C170.138 47.2521 170.379 47.6184 172.305 47.6184H177.21C179.135 47.6184 179.528 47.2479 179.937 45.2648L182.361 33.5139Z" fill="white" />
                       <path d="M280.764 30.4235C280.267 32.6298 279.067 34.6011 277.355 36.0232L270.434 41.9176C268.775 43.3548 266.687 44.1631 264.519 44.208H254.937L254.72 45.248C254.312 47.2352 254.549 47.6015 256.478 47.6015H277.212L274.906 58.7799H251.458C243.479 58.7799 239.42 53.4665 241.116 45.248L243.54 33.497C245.237 25.2785 251.491 19.9694 259.483 19.9694H269.801C277.76 19.9862 281.876 25.0175 280.764 30.4235ZM266.53 33.5139C266.939 31.5266 266.702 31.1603 264.773 31.1603H259.867C257.946 31.1561 257.537 31.5308 257.128 33.5139L256.311 37.56H264.405C264.768 37.5445 265.116 37.4074 265.396 37.1696C265.676 36.9317 265.874 36.6061 265.958 36.2422L266.53 33.5139Z" fill="white" />
@@ -167,6 +179,7 @@ export default function Home(props: PropsData) {
                   />
                   <button
                     type="submit"
+                    style={{ background: `#${buttonCollor}` }}
                   >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M9.17939e-07 13.5L18.255 13.5L9.87 21.885L12 24L24 12L12 -1.04907e-06L9.885 2.115L18.255 10.5L1.18021e-06 10.5L9.17939e-07 13.5Z" fill="white" />
@@ -190,7 +203,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
 
 
-  const { level, currentExperience, completedChallenges, user } = ctx.req.cookies
+  const { level, currentExperience, completedChallenges } = ctx.req.cookies
 
 
   return {
@@ -198,7 +211,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
       level: Number(level),
       currentExperience: Number(currentExperience),
       completedChallenges: Number(completedChallenges),
-      user: String(user)
     }
 
   }

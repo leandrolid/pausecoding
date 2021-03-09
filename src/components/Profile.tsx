@@ -9,7 +9,7 @@ export function Profile() {
         <div className={styles.profile} >
             <img src="https://github.com/leandrolid.png" alt="Pofile picture" />
             <div>
-                <strong>{ user == 'undefined' ? 'Anônimo' : user }</strong>
+                <strong>{!user ? 'Anônimo' : user}</strong>
                 <p>
                     <img src="icons/level.svg" alt="Level" />
                     Nível {level}</p>
