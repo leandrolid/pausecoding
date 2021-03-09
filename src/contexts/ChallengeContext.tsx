@@ -38,15 +38,19 @@ export function ChallengesProvider({ children, ...rest }: ChallengesProviderProp
 
     const user = rest.user
 
-    useEffect( async () => {
+    async function createUser () {
         const response = await axios.post('/api/createusers', { username : 'leandro.asl' })
         //console.log(response)
-
+    
         const { user } = response.data
-
+    
         Cookies.set('user', user.username)
-
+    
         //console.log(user)
+    }
+
+    useEffect( () => {
+        createUser()
     } ,[user])
     
 
