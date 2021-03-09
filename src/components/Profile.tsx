@@ -7,7 +7,7 @@ export function Profile() {
 
     return (
         <div className={styles.profile} >
-            <img src="https://github.com/leandrolid.png" alt="Pofile picture" />
+            <img src="avatar.jpg" alt="Pofile picture" />
             <div>
                 <strong>{!user ? 'Anônimo' : user}</strong>
                 <p>

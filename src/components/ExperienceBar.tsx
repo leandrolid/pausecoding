@@ -4,6 +4,8 @@ import styles from '../styles/components/ExperienceBar.module.css'
 
 export function ExperienceBar() {
 
+    const [currentExperienceBG, setCurrentExperienceBG] = useState('block')
+
     const [percentage, setPercentage] = useState(0)
 
     const { currentExperience, experienceToNextLevel, setCurrentExperience } = useContext(ChallengesContext)
@@ -16,6 +18,14 @@ export function ExperienceBar() {
         setPercentage(Math.round(currentExperience * 100 / experienceToNextLevel))
     }, [currentExperience])
 
+    useEffect(() => {
+        if (currentExperience == 0) {
+            setCurrentExperienceBG('none')
+        } else {
+            setCurrentExperienceBG('block')
+        }
+    }, [currentExperience])
+
 
     return (
         <header id='experienceBar' className={styles.experienceBar} >
@@ -26,7 +36,7 @@ export function ExperienceBar() {
                     className={styles.progressBar} />
 
                 <span
-                    style={{ left: `${percentage}%`, transition: '0.5s' }}
+                    style={{ left: `${percentage}%`, transition: '0.5s', display: `${currentExperienceBG}` }}
                     className={styles.currentExperience}
                 >{currentExperience === 0 ? null : `${currentExperience} xp`}
                     <div />
