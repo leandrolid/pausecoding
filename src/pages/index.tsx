@@ -104,7 +104,6 @@ export default function Home(props: PropsData) {
                     required
                     autoFocus
                     placeholder="Digite seu username"
-                    maxLength="26"
                   />
                   <button
                     type="submit"
