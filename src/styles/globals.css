@@ -60,19 +60,19 @@ a {
 
 @media (max-width: 1600px) {
   html {
-    font-size: 90%;
+    font-size: 95%;
   }
 }
 
 @media (max-width: 810px) {
   html {
-    font-size: 87.5%;
+    font-size: 90%;
   }
 }
 
 @media (max-width: 720px) {
   html {
-    font-size: 87%;
+    font-size: 87.75%;
   }
   .container section{
     grid-template-columns: 1fr;
@@ -80,12 +80,6 @@ a {
     gap: 0;
 
     flex: 1;
-  }
-}
-
-@media (max-width: 500px) {
-  html {
-    font-size: 82.5%;
   }
 }
 

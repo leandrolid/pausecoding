@@ -50,24 +50,31 @@
     flex-direction: row;
     height: 3.5rem;
 
-    margin-bottom: 1rem;
-}
+    margin-bottom: 0.5rem;
 
-.loginForm input,
-.loginForm input::-webkit-input-placeholder {
-    flex: 1;
-
-    padding: 1rem 1rem;
-    
     background: linear-gradient(90deg, #4953B8 0%, rgba(73, 83, 184, 0.2) 100%);
     color: #B2B9FF;
 
     border-radius: 5px 0 0 5px;
+}
+
+.loginForm input:not(:placeholder-shown ),
+.loginForm input:placeholder-shown {
+    flex: 1;
+
+    padding: 1rem 1rem;
+    
+    background: inherit;
+    color: inherit;
+    border-radius: inherit;
+    
     border:none;
     outline: none;
 }
 
-
+.loginForm input::-webkit-input-placeholder {
+    color: #B2B9FF;
+}
 
 .loginForm button {
     width: 3.5rem;
@@ -80,7 +87,7 @@
 }
 
 .loginForm span {
-    font-size: 0.75rem;
+    font-size: 0.9rem;
     font-weight: 500;
 
     width: fit-content;
@@ -91,7 +98,8 @@
     color: #B2B9FF;
 }
 
-.signUpUsername {
+#signUpUsername,
+#signUpUsername input {
     border-radius: 5px;
 }
 
@@ -110,6 +118,10 @@
         margin: 4rem 0 0 0;
         padding: 0;
         width: 10rem;
+    }
+
+    .loginForm {
+        width: 70vw;
     }
 
 }

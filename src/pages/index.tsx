@@ -113,6 +113,7 @@ export default function Home(props: PropsData) {
             </main>
           ) : (
             <main className={styles.loginContainer} >
+              <img src="bg-logo.svg" alt="pausecoding" />
               <form
                 method="get"
                 className={styles.loginForm}
@@ -123,14 +124,14 @@ export default function Home(props: PropsData) {
                 </header>
                 <label>Bem-vindo(a)</label>
                 <p>Faça login para receber seus desafios</p>
-                <div>
+                <div id={styles.signUpUsername}>
                   <input
                     type="text"
                     name="username"
                     id="username"
                     required
                     placeholder="Digite seu username"
-                    className={styles.signUpUsername}
+
                   />
                 </div>
                 <div>
