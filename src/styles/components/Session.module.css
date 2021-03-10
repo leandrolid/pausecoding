@@ -32,6 +32,15 @@
 
 .loginForm header {
     margin-bottom: 3rem;
+
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.loginForm header img {
+    width: 25rem;
 }
 
 .loginForm label {
@@ -121,7 +130,18 @@
     }
 
     .loginForm {
-        width: 70vw;
+        width: 90vw;
+    }
+
+    .loginForm header {
+        width: 90vw;
+    }
+
+}
+
+@media (max-width: 390px){
+    .loginForm header {
+        width: 90vw;
     }
 
 }
