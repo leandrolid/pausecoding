@@ -18,7 +18,10 @@
     filter: opacity(0.5);
     position: fixed;
     bottom: 15vh;
-    left: 15vw;
+
+
+    left: 40vw;
+    transform: translateX(-50%);
 }
 
 
@@ -145,7 +148,7 @@
 }
 
 */
-@media (max-width: 400px){
+@media (max-width: 450px){
     .loginContainer{
         display: grid;
         grid-template-columns: 1fr 90vw 1fr;
@@ -157,7 +160,7 @@
         grid-area: form;
         width: 100vw;
         flex: 1;
-        left: 0vw;
+        
     }
     .loginForm{
         grid-area: form;
