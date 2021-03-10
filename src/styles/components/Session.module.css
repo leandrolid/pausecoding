@@ -10,12 +10,15 @@
 
 .loginContainer > img {
     grid-area: logo;
-    width: 25rem;
+    /* width: 40rem; */
+    height: 70vh;
     padding: 0 2rem;
-
-    justify-self: center;
-    align-self: center;
+    /* justify-self: center; */
+    /* align-self: center; */
     filter: opacity(0.5);
+    position: fixed;
+    bottom: 15vh;
+    left: 15vw;
 }
 
 
@@ -28,6 +31,8 @@
     justify-content: center;
     
     width: fit-content;
+
+    z-index: 10;
 }
 
 .loginForm header {
@@ -111,7 +116,7 @@
 #signUpUsername input {
     border-radius: 5px;
 }
-
+/*
 @media (max-width: 720px) {
     .loginContainer{
         display: flex;
@@ -139,9 +144,28 @@
 
 }
 
-@media (max-width: 390px){
-    .loginForm header {
-        width: 90vw;
+*/
+@media (max-width: 400px){
+    .loginContainer{
+        display: grid;
+        grid-template-columns: 1fr 90vw 1fr;
+        grid-template-rows: 100vh;
+        grid-template-areas: '. form .';
+    }
+    
+    .loginContainer > img {
+        grid-area: form;
+        width: 100vw;
+        flex: 1;
+        left: 0vw;
+    }
+    .loginForm{
+        grid-area: form;
     }
 
+    .loginForm,
+    .loginForm header img {
+        width: 90vw;
+    }
+    
 }
