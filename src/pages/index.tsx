@@ -43,10 +43,10 @@ export default function Home(props: PropsData,) {
   }, [username])
 
 
-  function handleLogin(event) {
-    event.preventdefault
-    router.push('/challenges')
-  }
+  // function handleLogin(event) {
+  //   event.preventdefault
+  //   router.push('/challenges')
+  // }
 
   function handleSignUp() {
     setIsSignUpActive(true)
@@ -71,7 +71,14 @@ export default function Home(props: PropsData,) {
           <form
             method="post"
             className={styles.loginForm}
-            onSubmit={handleLogin}
+            // onSubmit={handleLogin}
+            onSubmit={(e) => {
+              e.preventDefault()
+              // typically you want to use `next/link` for this usecase
+              // but this example shows how you can also access the router
+              // and use it manually
+              router.push('/challenges')
+            }}
           >
             <header>
               <img src="logo-01.svg" alt="pausecoding" />
@@ -93,6 +100,7 @@ export default function Home(props: PropsData,) {
               <button
                 type="submit"
                 style={{ background: `#${buttonCollor}` }}
+
               >
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M9.17939e-07 13.5L18.255 13.5L9.87 21.885L12 24L24 12L12 -1.04907e-06L9.885 2.115L18.255 10.5L1.18021e-06 10.5L9.17939e-07 13.5Z" fill="white" />
@@ -109,7 +117,14 @@ export default function Home(props: PropsData,) {
           <form
             method="get"
             className={styles.loginForm}
-            onSubmit={handleLogin}
+            // onSubmit={handleLogin}
+            onSubmit={(e) => {
+              e.preventDefault()
+              // typically you want to use `next/link` for this usecase
+              // but this example shows how you can also access the router
+              // and use it manually
+              router.push('/challenges')
+            }}
           >
             <header>
               <img src="logo-01.svg" alt="pausecoding" />
