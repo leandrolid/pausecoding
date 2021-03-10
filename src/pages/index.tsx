@@ -1,17 +1,19 @@
 import Head from 'next/head'
 import { GetServerSideProps } from 'next'
-import { ExperienceBar } from '../components/ExperienceBar'
-import { Profile } from '../components/Profile'
-import { CompletedChallenges } from '../components/CompletedChallenges'
-import { Counter } from '../components/Counter'
-import { ChallengeBox } from '../components/ChallengeBox'
-import { ModalCompleted } from '../components/ModalCompleted'
-import { CountdownProvider } from '../contexts/CountdownContext'
 import { ChallengesProvider } from '../contexts/ChallengeContext'
 import { useEffect, useState } from 'react'
+import Cookies from 'js-cookie'
+// import { ModalCompleted } from '../components/ModalCompleted'
+// import { ExperienceBar } from '../components/ExperienceBar'
+// import { Profile } from '../components/Profile'
+// import { CompletedChallenges } from '../components/CompletedChallenges'
+// import { Counter } from '../components/Counter'
+// import { ChallengeBox } from '../components/ChallengeBox'
+// import { CountdownProvider } from '../contexts/CountdownContext'
+
+import { useRouter } from 'next/router'
 
 import styles from '../styles/components/Session.module.css'
-import Cookies from 'js-cookie'
 
 interface PropsData {
   level: number,
@@ -19,24 +21,31 @@ interface PropsData {
   completedChallenges: number,
 }
 
-export default function Home(props: PropsData) {
+export default function Home(props: PropsData,) {
 
-  const [isLoginActive, setIsLoginActive] = useState(false)
   const [isSignUpActive, setIsSignUpActive] = useState(false)
   const [username, setUsername] = useState("")
   const [buttonCollor, setButtonCollor] = useState("4953b8")
 
-  //console.log(username)
+  // console.log(username)
   //localStorage.setItem('user', username)
+
+  const router = useRouter()
+
   useEffect(() => {
     if (username) {
       setButtonCollor("4CD62B")
+      Cookies.set("username", username)
+
+      const user = Cookies.get("username")
+      console.log(user)
     }
   }, [username])
+
+
   function handleLogin(event) {
     event.preventdefault
-    Cookies.set("username", username)
-    setIsLoginActive(true)
+    router.push('/challenges')
   }
 
   function handleSignUp() {
@@ -55,110 +64,92 @@ export default function Home(props: PropsData) {
       <Head>
         <title>pausecoding</title>
       </Head>
-      { isLoginActive ? (
-        <div id='topContainer' className="container" >
-          <ExperienceBar />
 
-          <CountdownProvider>
-            <section>
-              <div>
-                <Profile />
-                <CompletedChallenges />
-                <Counter />
-              </div>
+      { !isSignUpActive ? (
+        <main className={styles.loginContainer} >
+          <img src="bg-logo.svg" alt="pausecoding" />
+          <form
+            method="post"
+            className={styles.loginForm}
+            onSubmit={handleLogin}
+          >
+            <header>
+              <img src="logo-01.svg" alt="pausecoding" />
+            </header>
+            <label>Bem-vindo(a)</label>
+            <p>Faça login para receber seus desafios</p>
+            <div>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                required
+                autoFocus
+                placeholder="Digite seu username"
+                value={username}
+                onChange={event => setUsername(event.target.value)}
+              />
 
-              <div>
-                <ChallengeBox />
-              </div>
-            </section>
-          </CountdownProvider>
-        </div>
+              <button
+                type="submit"
+                style={{ background: `#${buttonCollor}` }}
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.17939e-07 13.5L18.255 13.5L9.87 21.885L12 24L24 12L12 -1.04907e-06L9.885 2.115L18.255 10.5L1.18021e-06 10.5L9.17939e-07 13.5Z" fill="white" />
+                </svg>
+              </button>
+
+            </div>
+            <span onClick={handleSignUp} >Não possuo cadastro</span>
+          </form>
+        </main>
       ) : (
-        <>
-          { !isSignUpActive ? (
-            <main className={styles.loginContainer} >
-              <img src="bg-logo.svg" alt="pausecoding" />
-              <form
-                method="get"
-                className={styles.loginForm}
-                onSubmit={handleLogin}
-              >
-                <header>
-                  <img src="logo-01.svg" alt="pausecoding" />
-                </header>
-                <label>Bem-vindo(a)</label>
-                <p>Faça login para receber seus desafios</p>
-                <div>
-                  <input
-                    type="text"
-                    name="dashboard"
-                    id="username"
-                    required
-                    autoFocus
-                    placeholder="Digite seu username"
-                    value={username}
-                    onChange={event => setUsername(event.target.value)}
-                  />
-                  <button
-                    type="submit"
-                    style={{ background: `#${buttonCollor}` }}
-                  >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M9.17939e-07 13.5L18.255 13.5L9.87 21.885L12 24L24 12L12 -1.04907e-06L9.885 2.115L18.255 10.5L1.18021e-06 10.5L9.17939e-07 13.5Z" fill="white" />
-                    </svg>
-                  </button>
-                </div>
-                <span onClick={handleSignUp} >Não possuo cadastro</span>
-              </form>
-            </main>
-          ) : (
-            <main className={styles.loginContainer} >
-              <img src="bg-logo.svg" alt="pausecoding" />
-              <form
-                method="get"
-                className={styles.loginForm}
-                onSubmit={handleLogin}
-              >
-                <header>
-                  <img src="logo-01.svg" alt="pausecoding" />
-                </header>
-                <label>Bem-vindo(a)</label>
-                <p>Faça login para receber seus desafios</p>
-                <div id={styles.signUpUsername}>
-                  <input
-                    type="text"
-                    name="username"
-                    id="username"
-                    required
-                    placeholder="Digite seu username"
+        <main className={styles.loginContainer} >
+          <img src="bg-logo.svg" alt="pausecoding" />
+          <form
+            method="get"
+            className={styles.loginForm}
+            onSubmit={handleLogin}
+          >
+            <header>
+              <img src="logo-01.svg" alt="pausecoding" />
+            </header>
+            <label>Bem-vindo(a)</label>
+            <p>Faça login para receber seus desafios</p>
+            <div id={styles.signUpUsername}>
+              <input
+                type="text"
+                name="username"
+                id="username"
+                required
+                placeholder="Digite seu username"
 
-                  />
-                </div>
-                <div>
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    required
-                    placeholder="Digite seu nome"
+              />
+            </div>
+            <div>
+              <input
+                type="text"
+                name="name"
+                id="name"
+                required
+                placeholder="Digite seu nome"
 
-                  />
-                  <button
-                    type="submit"
-                    style={{ background: `#${buttonCollor}` }}
-                  >
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M9.17939e-07 13.5L18.255 13.5L9.87 21.885L12 24L24 12L12 -1.04907e-06L9.885 2.115L18.255 10.5L1.18021e-06 10.5L9.17939e-07 13.5Z" fill="white" />
-                    </svg>
-                  </button>
-                </div>
-                <span onClick={handleSignIn} >Já possuo cadastro</span>
-              </form>
-            </main>
-          )}
-        </>
+              />
+              <button
+                type="submit"
+                style={{ background: `#${buttonCollor}` }}
+              >
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M9.17939e-07 13.5L18.255 13.5L9.87 21.885L12 24L24 12L12 -1.04907e-06L9.885 2.115L18.255 10.5L1.18021e-06 10.5L9.17939e-07 13.5Z" fill="white" />
+                </svg>
+              </button>
+            </div>
+            <span onClick={handleSignIn} >Já possuo cadastro</span>
+          </form>
+        </main>
       )}
-      <ModalCompleted />
+
+
     </ChallengesProvider>
   )
 }

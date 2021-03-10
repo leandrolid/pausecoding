@@ -34,11 +34,11 @@ export const ChallengesContext = createContext({} as ChallengesContextData)
 
 export function ChallengesProvider({ children, ...rest }: ChallengesProviderProps) {
 
-    const user = null
+    const user = Cookies.get('username')
     /*
     
     async function createUser() {
-        const response = await axios.post('/api/createusers', { username: 'leandro.asl' })
+        const response = await axios.post('/api/createusers', { username })
         //console.log(response)
 
         const { user } = response.data
