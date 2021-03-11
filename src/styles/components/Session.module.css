@@ -10,6 +10,7 @@
     background: url('../../../public/bg-logo.svg') no-repeat 10vw 0, var(--blue);
     background-position: start;
     background-size: contain;
+    background-blend-mode: luminosity;
     color: var(--white);
 
 }
