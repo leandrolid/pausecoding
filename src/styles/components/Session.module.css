@@ -4,10 +4,14 @@
     grid-template-rows: 100vh;
     grid-template-areas: '. logo form .';
 
-    background: var(--blue);
+    width: 100vw;
+    height: 100vh;
+
+    background: url('../../../public/bg-logo.svg') no-repeat 10vw 0, var(--blue);
+    background-position: start;
+    background-size: contain;
     color: var(--white);
 
-    transition: 0.2s;
 }
 
 .loginContainer > img {
@@ -70,6 +74,7 @@
     justify-content: space-between;
 
     height: 3.5rem;
+    width: 100%;
     margin-bottom: 0.5rem;
 
     background: linear-gradient(90deg, #4953B8 0%, rgba(73, 83, 184, 0.2) 100%);
@@ -81,7 +86,7 @@
 .loginForm input:not(:placeholder-shown ),
 .loginForm input:placeholder-shown {
     flex: 1;
-
+    width: inherit;
     padding: 1rem;
     
     background: inherit;
@@ -151,12 +156,14 @@
 }
 
 */
-@media (max-width: 450px){
+@media (max-width: 500px){
     .loginContainer{
         display: grid;
         grid-template-columns: 1fr 90vw 1fr;
         grid-template-rows: 100vh;
         grid-template-areas: '. form .';
+
+        background: url('../../../public/bg-logo.svg') no-repeat 0 25vh, var(--blue);
     }
     
     .loginContainer > img {

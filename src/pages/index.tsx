@@ -67,7 +67,6 @@ export default function Home(props: PropsData,) {
 
       { !isSignUpActive ? (
         <main className={styles.loginContainer} >
-          <img src="bg-logo.svg" alt="pausecoding" />
           <form
             method="post"
             className={styles.loginForm}
@@ -113,7 +112,6 @@ export default function Home(props: PropsData,) {
         </main>
       ) : (
         <main className={styles.loginContainer} >
-          <img src="bg-logo.svg" alt="pausecoding" />
           <form
             method="get"
             className={styles.loginForm}

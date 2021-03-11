@@ -38,8 +38,22 @@
 
     padding: 5px;
     
-    background-color: var(--white);
-    border-radius: 7px 7px 0 0;
+    background-color: var(--green);
+    color: var(--white);
+    border-radius: 5px;
+
 
     transform: translateX(-50%);
+  }
+
+  .currentExperience div {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%) rotateZ(45deg);
+
+    background: var(--green);
   }
