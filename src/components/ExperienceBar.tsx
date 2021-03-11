@@ -37,8 +37,9 @@ export function ExperienceBar() {
 
                 <span
                     style={{ left: `${percentage}%`, transition: '0.5s', display: `${currentExperienceBG}` }}
-                    className={styles.currentExperience}
-                >{currentExperience === 0 ? null : `${currentExperience} xp`}
+                    className={styles.currentExperience} 
+                > 
+                <p>{currentExperience === 0 ? null : `${currentExperience} xp`}</p>
                     <div />
                 </span>
             </div>

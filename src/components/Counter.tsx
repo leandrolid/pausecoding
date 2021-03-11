@@ -4,6 +4,16 @@ import styles from '../styles/components/Counter.module.css'
 
 export function Counter() {
 
+    // const [leftMinuteCustom, setLeftMinuteCustom] = useState(2)
+
+    // function increaseMinute(){
+    //     setLeftMinuteCustom(leftMinuteCustom+1)
+
+    //     if (leftMinuteCustom >= 5 ){
+    //         setLeftMinuteCustom(0)
+    //     }
+    // }
+
     const {
         time,
         totalTime,
