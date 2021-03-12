@@ -43,10 +43,13 @@ export default function Home(props: PropsData,) {
   }, [username])
 
 
-  // function handleLogin(event) {
-  //   event.preventdefault
-  //   router.push('/challenges')
-  // }
+  function handleLogin(event) {
+    event.preventDefault()
+    // typically you want to use `next/link` for this usecase
+    // but this example shows how you can also access the router
+    // and use it manually
+    router.push('/challenges')
+  }
 
   function handleSignUp() {
     setIsSignUpActive(true)
@@ -70,14 +73,7 @@ export default function Home(props: PropsData,) {
           <form
             method="post"
             className={styles.loginForm}
-            // onSubmit={handleLogin}
-            onSubmit={(e) => {
-              e.preventDefault()
-              // typically you want to use `next/link` for this usecase
-              // but this example shows how you can also access the router
-              // and use it manually
-              router.push('/challenges')
-            }}
+            onSubmit={handleLogin}
           >
             <header>
               <img src="logo-01.svg" alt="pausecoding" />
@@ -115,14 +111,7 @@ export default function Home(props: PropsData,) {
           <form
             method="get"
             className={styles.loginForm}
-            // onSubmit={handleLogin}
-            onSubmit={(e) => {
-              e.preventDefault()
-              // typically you want to use `next/link` for this usecase
-              // but this example shows how you can also access the router
-              // and use it manually
-              router.push('/challenges')
-            }}
+            onSubmit={handleLogin}
           >
             <header>
               <img src="logo-01.svg" alt="pausecoding" />

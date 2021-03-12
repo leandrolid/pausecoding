@@ -4,15 +4,25 @@ import styles from '../styles/components/Counter.module.css'
 
 export function Counter() {
 
-    // const [leftMinuteCustom, setLeftMinuteCustom] = useState(2)
+    const [minuteLeftCustom, setMinuteLeftCustom] = useState(2)
+    const [minuteRightCustom, setMinuteRightCustom] = useState(5)
 
-    // function increaseMinute(){
-    //     setLeftMinuteCustom(leftMinuteCustom+1)
+    function increaseMinute() {
+        setMinuteLeftCustom(minuteLeftCustom + 1)
 
-    //     if (leftMinuteCustom >= 5 ){
-    //         setLeftMinuteCustom(0)
-    //     }
-    // }
+        if (minuteLeftCustom >= 5) {
+            setMinuteLeftCustom(0)
+        }
+    }
+    function reduceMinute() {
+        setMinuteLeftCustom(minuteLeftCustom - 1)
+
+        if (minuteLeftCustom >= 0) {
+            setMinuteLeftCustom(9)
+        }
+    }
+
+
 
     const {
         time,
