@@ -63,51 +63,27 @@ export function Counter() {
             <div className={styles.counter} >
                 <div>
                     <span>
-                        <button className={styles.addLeft}
-                        onClick={increaseMinuteLeft} > 
-                            +
-                        </button>
+                        
                         {minuteLeft}
-                        <button className={styles.removeLeft}
-                        onClick={reduceMinuteLeft} >
-                            -
-                        </button>
+                        
                     </span>
                     <span>
-                        <button className={styles.addRight}
-                        onClick={increaseMinuteRight} > 
-                            +
-                        </button>
+                        
                         {minuteRight}
-                        <button className={styles.removeRight}
-                        onClick={reduceMinuteRight} >
-                            -
-                        </button>
+                        
                     </span>
                 </div>
                 <span>:</span>
                 <div>
                     <span>
-                        <button className={styles.addLeft}
-                        onClick={increaseSecondLeft} > 
-                            +
-                        </button>
+                       
                         {secondLeft}
-                        <button className={styles.removeLeft}
-                        onClick={reduceSecondLeft} >
-                            -
-                        </button>
+                        
                     </span>
                     <span>
-                        <button className={styles.addRight}
-                        onClick={increaseSecondRight} > 
-                            +
-                        </button>
+                        
                         {secondRight}
-                        <button className={styles.removeRight}
-                        onClick={reduceSecondRight} >
-                            -
-                        </button>
+                        
                     </span>
                 </div>
             </div>
