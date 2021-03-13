@@ -13,14 +13,14 @@ export function Counter() {
         isButtonActive,
         startCountdown,
         stopCountdown,
-        increaseMinuteLeft,
-        reduceMinuteLeft,
-        increaseMinuteRight,
-        reduceMinuteRight,
-        increaseSecondLeft,
-        reduceSecondLeft,
-        increaseSecondRight,
-        reduceSecondRight
+//         increaseMinuteLeft,
+//         reduceMinuteLeft,
+//         increaseMinuteRight,
+//         reduceMinuteRight,
+//         increaseSecondLeft,
+//         reduceSecondLeft,
+//         increaseSecondRight,
+//         reduceSecondRight
      }
         = useContext(CountdownContext)
         
