@@ -33,6 +33,7 @@
 .counter > div span {
     flex: 1;
     width: 4.5rem;
+    position: relative;
 }
 
 .counter > div span:first-child{
@@ -142,4 +143,31 @@
     z-index: 10;
     background: yellowgreen;
     border-radius: inherit;
+}
+
+.counter > div span button{
+    position: absolute;
+    width: 100%;
+
+    background-color: rgba(255, 255, 255, 0);
+
+    border: none;
+    outline: none;
+}
+
+.addLeft {
+    top: 0;
+    left: 0;
+}
+.removeLeft{
+    bottom: 0;
+    left: 0;
+}
+.addRight{
+    top: 0;
+    right: 0;
+}
+.removeRight{
+    bottom: 0;
+    right: 0;
 }
