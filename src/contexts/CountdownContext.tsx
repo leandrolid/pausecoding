@@ -106,7 +106,7 @@ export function CountdownProvider({ children }: CountdownProviderProps) {
 //         }
 //     }
 
-    const totalTime = 0.05*60
+    const totalTime = 25*60
 
 //     useEffect(()=>{
 //         const minLeft = Cookies.get('minuteLeftCustom')
