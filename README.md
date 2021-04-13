@@ -1,10 +1,11 @@
 # Pausecoding
 
 <p>
-  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/martins-rafael/moveIt?color=6E40C9&style=flat-square">
-  <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/martins-rafael/moveIt?color=6E40C9&style=flat-square">
+  
+  <img alt="GitHub language count" src="https://img.shields.io/github/languages/count/leandrolid/pausecoding?color=6E40C9&style=flat-square">
+  <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/leandrolid/pausecoding?color=6E40C9&style=flat-square">
   <a href="https://github.com/leandrolid/pausecoding/commits/master">
-    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/martins-rafael/moveIt?color=6E40C9&style=flat-square">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/leandrolid/pausecoding?color=6E40C9&style=flat-square">
   </a>
 </p>
 
