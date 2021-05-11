@@ -26,6 +26,7 @@
 ## Preview
 
 <a alt="pausecoding" href="https://pausecoding.vercel.app" >Clique aqui </a> para ter acesso a um  preview do App.
+Você também pode acessar uma versão com o tempo reduzido para vizualizar as funcionalidades mais rapidamente, basta clicar <a alt="pausecoding 6 segundos" href="https://pausecoding-8z7rh7qy7-leandrolid.vercel.app/" >aqui</a>.
 
 ## Sobre o Pausecoding
 
