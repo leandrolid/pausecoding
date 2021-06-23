@@ -30,7 +30,7 @@ Você também pode acessar uma versão com o tempo reduzido para vizualizar as f
 
 ## Sobre o Pausecoding
 
-O Pausecoding é um App que utiliza a técnica de [pomodoro](https://pt.wikipedia.org/wiki/T%C3%A9cnica_pomodoro), com o objetivo de melhorar sua produtividade e foco. Desenvolvido durante a Next Level Week #4 da [Rocketseat](https://rocketseat.com.br/).
+O Pausecoding é um App que utiliza a técnica de ***pomodoro***, com o objetivo de melhorar sua produtividade e foco. Desenvolvido durante a Next Level Week #4 da ***Rocketseat.***
 
 <br>
 
